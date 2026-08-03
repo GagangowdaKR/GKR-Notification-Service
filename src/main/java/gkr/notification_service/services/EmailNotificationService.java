@@ -2,6 +2,7 @@ package gkr.notification_service.services;
 
 import gkr.notification_service.dto.NotificationRequest;
 import gkr.notification_service.enums.NotificationType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
+@Slf4j
 public class EmailNotificationService implements NotificationService {
 
     private final RestClient restClient;
@@ -45,5 +47,7 @@ public class EmailNotificationService implements NotificationService {
                 .body(payload)
                 .retrieve()
                 .toBodilessEntity();
+
+        log.info("Email Notification Service sent to " + request.recipient());
     }
 }
