@@ -48,6 +48,6 @@ public class EmailNotificationService implements NotificationService {
                 .retrieve()
                 .toBodilessEntity();
 
-        log.info("Email Notification Service sent to " + request.recipient());
+        log.info("Email sent to " + request.recipient());
     }
 }
