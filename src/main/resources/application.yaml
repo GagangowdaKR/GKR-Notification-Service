@@ -1,3 +1,19 @@
 spring:
   application:
     name: GKR-Notification-Service
+
+server:
+  port: 8082
+
+# Resend API Configuration
+resend:
+  api:
+    key: ${RESEND_API_KEY:re_dummy12_recond54ApiKey}
+  sender:
+    email: ${RESEND_SENDER_EMAIL:onboarding@resend.dev}
+
+# Application Level Logging
+logging:
+  level:
+    root: INFO
+    gkr.notification_service: DEBUG
